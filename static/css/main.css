@@ -32,54 +32,57 @@ body{
 
 
 
-  .navbar {
-    margin: 0px auto 0; 
-    padding: 0; 
-    list-style: none; 
-    display: table;
-    width: 600px;
-    text-align: center;
+.navbar {
+  margin: 0px auto 0;
+  padding: 0;
+  list-style: none;
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center align items horizontally */
+  width: 600px;
+  text-align: center;
 }
 
-.navbar li { 
-    display: table-cell; 
-    position: relative; 
-    padding: 15px 0;
+.navbar li {
+  display: inline-block; /* Display list items inline */
+  position: relative;
+  padding: 15px 0;
 }
 
-.navbar a {
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    display: inline-block;
-    padding: 15px 20px;
-    position: relative;
+.navButton {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+  cursor: pointer;
 }
 
-.navbar a:after {    
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: #fff;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
+.navButton:hover {
+  color: #fff;
 }
 
-.navbar a:hover:after { 
-    width: 100%; 
-    left: 0; 
+.navButton:after {
+  content: "";
+  display: block;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  background: #fff;
+  transition: width 0.3s ease, left 0.3s ease;
+  width: 0;
 }
 
-@media screen and (max-height: 300px) {
-    .navbar {
-        margin-top: 40px;
-    }
+.navButton:hover:after {
+  width: 100%;
+  left: 0;
 }
+
+
 
 .form-outer form .page .field select {
   width: 100%;
@@ -289,7 +292,7 @@ form .page .btns button.next{
 
 /*SECTION */ 
 
-/* .container
+.container
 {
   display: flex;
   justify-content:space-around;
@@ -497,4 +500,4 @@ form .page .btns button.next{
   background: #ffcf4d;
   border: 1px solid rgba(255, 0, 88, 0.4);
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
-} */
+}
