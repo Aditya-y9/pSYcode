@@ -1,0 +1,543 @@
+
+
+*
+    box-sizing: border-box 
+
+html, body
+    width: 100%
+
+body,
+main
+    margin: 0
+    overflow-x: hidden
+
+a
+    text-decoration: none
+    outline: none
+
+section
+    position: relative
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+  
+.hero-section
+    opacity: 0
+    z-index: 40
+    transition: all 0.6s ease
+    &.active
+        opacity: 1
+
+.lbl-1 
+    color: #f0f0f0
+    font-family: "Montserrat"
+    font-size: 25px
+    font-weight: 500
+    line-height: 39px
+    color: #fff
+    margin: 0
+    span
+        &.red
+            color: #ed0188
+        &.yellow
+            color: #F9B225
+
+.lbl-2 
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26)
+    color: #ffffff
+    font-family: "Montserrat"
+    font-size: 18px
+    font-weight: 600
+    line-height: 24px
+    margin: 0
+
+.hero-section__container
+    width: 1120px
+    height: 100%
+    margin: 0 auto
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+
+.hero-section
+    width: 100%
+    height: 100vh
+    overflow: hidden
+    &.laptop-ie
+        height: 700px
+    
+.loader
+    width: 100%
+    height: 100%
+    z-index: 10
+    position: absolute
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #242424
+    .load
+        color: #ffffff
+        font-family: "Montserrat"
+        font-size: 15px
+        font-weight: 500
+        line-height: 39px
+        margin: 0
+        text-transform: uppercase
+        letter-spacing: 10px
+        opacity: 0
+        animation: bounce 2s ease infinite
+        visibility: visible
+        transition: visibility 0.3s ease
+    &.active 
+        .load
+            .load
+                visibility: hidden
+
+#left-indicator
+    width: 50%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 6
+
+#right-indicator
+    width: 50%
+    height: 100%
+    position: absolute
+    right: 0
+    top: 0
+    z-index: 6
+
+.text-wrap
+    position: relative
+    text-align: center
+    opacity: 0
+    &-left
+        transform: translateX(76px)
+        margin: 0 0 20px 0
+        transition: all 0.5s cubic-bezier(0.60, 0.00, 0.20, 1.00) 0.1s
+    &-right
+        transform: translateX(-76px)
+        transition: all 0.5s cubic-bezier(0.60, 0.00, 0.20, 1.00) 0.1s
+        margin: 5px 0 36px 0
+
+#circles 
+    position: relative
+    z-index: 1
+    width: 440px
+    height: 253px
+    svg 
+        height: auto !important
+        width: initial !important
+        position: absolute
+        z-index: 1
+        left: -18.5%
+        top: 0
+
+#labs-circles 
+    overflow: visible
+
+.infinity
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    transition: all 0.9s ease
+    .infinity-sign
+        position: absolute
+        margin-top: -3px
+        filter: grayscale(1)
+        transition: filter 0.9s ease
+
+.button-wrap
+    text-align: center
+    position: relative
+    display: flex
+    justify-content: center
+    &-left
+        margin-top: 52px
+    &-right 
+        margin-top: 97px
+
+.button-gradient
+    width: 137px
+    height: 44px
+    border-radius: 57px
+    padding: 1px
+    opacity: 0
+    z-index: 7
+    &.red
+        transition: all 0.4s cubic-bezier(0.60, 0.00, 0.20, 1.00) 0.2s
+        transform: translateX(-76px)
+        background-image: linear-gradient(233deg, #ed0088 0%, #f9b225 100%)
+    &.yellow
+        transition: all 0.4s cubic-bezier(0.60, 0.00, 0.20, 1.00) 0.2s
+        transform: translateX(76px)
+        background-image: linear-gradient(-138deg, #F9EB25 0%, #F9B225 100%)
+    .hero-button
+        position: relative
+        color: #ffffff
+        width: 137px
+        height: 44px
+        font-family: "Montserrat"
+        font-size: 15px
+        font-weight: 400
+        display: flex
+        justify-content: center
+        align-items: center
+        background-color: #242424
+        width: 100%
+        height: 100%
+        border-radius: 57px
+        transition: all 0.4s linear
+
+.right-block
+    text-align: center
+    padding-top: 165px
+    .logo-wrap
+        display: flex
+        flex-direction: column
+        align-items: center
+        transition: all 0.5s cubic-bezier(0.60, 0.00, 0.20, 1.00) 0.1s
+        opacity: 0
+        transform: translateX(-76px)
+        .labs-logo
+            position: relative   
+        .labs-circles
+            position: relative
+            margin-bottom: 5px
+            svg 
+                overflow: visible
+          
+@keyframes bounce
+    0% 
+        opacity: 1
+        letter-spacing: 10px
+    50% 
+        opacity: 0.8
+        letter-spacing: 7px
+    100%
+        opacity: 1
+        letter-spacing: 10px
+
+.right-block
+    &.active
+        .logo-wrap
+            opacity: 1
+            transform: translateX(0)
+        .infinity
+            .infinity-sign
+                filter: grayscale(0)
+        #loop 
+            &:before 
+                background: #f3655b
+            svg 
+                path
+                    stroke: #000000
+        .button-gradient.red
+            opacity: 1
+            transform: translateX(0)
+            .hero-button
+                background-color: #000000
+        .text-wrap
+            transform: translateX(0)
+            opacity: 1
+        #mask 
+            filter: grayscale(0)
+
+.left-block
+    position: relative
+    padding-top: 218px
+    .circles-description
+        position: absolute
+        display: flex
+        justify-content: space-between
+        text-align: center
+        width: 100%
+        left: 0
+        bottom: 97px
+        z-index: 4
+        .desc
+            &-left
+                opacity: 0
+                transition: all 0.3s cubic-bezier(0.80, 0.00, 0.83, 1.00) 0.3s
+                transform: translateX(-30px)
+                width: 100%
+                max-width: 120px
+                margin-left: 46px
+            &-right
+                opacity: 0
+                transition: all 0.3s cubic-bezier(0.80, 0.00, 0.83, 1.00) 0.3s
+                transform: translateX(30px)
+                max-width: 170px
+                margin-right: 6%
+
+.left-block
+    &.active
+        .button-gradient.yellow
+            opacity: 1
+            transform: translateX(0)
+            .hero-button
+                    background-color: #000000    
+        .text-wrap
+            transform: translateX(0)
+            opacity: 1
+        .circles-description
+            .desc
+                &-left
+                    opacity: 1
+                    transform: translateX(0)
+                &-right
+                    opacity: 1
+                    transform: translateX(0)
+                
+#animated-bg
+    position: absolute
+    z-index: 0
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    svg 
+        height: auto !important
+        width: 101% !important
+        position: absolute
+        top: 0
+        left: 50%
+        transform: translateX(-50%) !important
+
+#mask 
+    position: absolute
+    filter: grayscale(1)
+    transition: filter 0.4s linear 0.1s
+    z-index: 3
+    margin-left: 0px
+
+#loop 
+    position: relative
+    z-index: 2
+    svg 
+        width: auto !important
+        height: auto !important
+        path
+            transition: stroke 0.4s linear 0.1s
+            stroke: #242424
+            stroke-width: 22
+      
+// FIREFOX
+#infinity.ff 
+    #mask 
+        margin-left: 2px
+        #mask-rect 
+            clip-path: polygon(48.2558% 76px, 53.7282% 51.1256%, 50.2641% 57.1359%, 196px 46.4487%) !important
+    .infinity-sign
+        margin-top: -5px
+
+#infinity.ff-old 
+    .infinity-sign
+        top: 0
+        left: 0
+        margin-top: 0px
+    #mask 
+        top: 0
+        left: 0
+        #mask-rect 
+            clip-path: url(#y-shape)
+// END FIREFOX
+#mask 
+    visibility: hidden
+  
+// INTERNET EXPLORER && EDGE
+.trident-mask 
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 15px
+    transform: translate(-50%, -50%) rotate(-45deg)
+    height: 40px
+    z-index: 3
+    margin-left: 2px
+    background-image: linear-gradient(to bottom, #f46052 0%, #f24762 100%)
+    display: none
+    opacity: 0
+
+#infinity 
+    &.ie 
+        display: block
+        .infinity-sign 
+            margin-top: 5px
+            top: 0
+            left: 0
+        #mask 
+            opacity: 0
+        .trident-mask
+            opacity: 1
+            display: block
+    &.edge
+        display: block
+        #mask 
+            display: none
+        #loop 
+            display: none 
+        .infinity-sign 
+            position: relative
+            top: 0
+            left: 0
+
+#right-block
+    &.ie 
+        .button-wrap-right
+            margin-top: 133px
+    &.edge 
+        .button-wrap-right
+            margin-top: 133px
+
+#left-block
+    &.ie 
+        .circles-description 
+            bottom: 67px
+            position: relative
+        .button-wrap-left
+            margin-top: 0
+    &.edge 
+        .circles-description 
+            bottom: 67px
+            position: relative
+            .button-wrap-left
+                margin-top: 0
+          
+// END EXPLORER && EDGE
+           
+ 
+@media all and(min-width: 1800px)
+    .hero-section__container
+        width: 1350px
+
+@media all and(max-width: 1700px)
+    #circles 
+        width: 415px
+        svg 
+            height: auto !important
+            width: initial !important
+            position: absolute
+            z-index: 1
+            left: -24.5%
+            top: 0
+
+@media all and(max-width: 1680px)
+    #animated-bg svg
+        height: auto !important
+        width: 101% !important
+
+@media all and(max-width: 1480px)
+    #circles 
+        width: 415px
+        svg 
+            height: auto !important
+            width: initial !important
+            position: absolute
+            z-index: 1
+            left: -24.5%
+            top: 0
+    .left-block .circles-description 
+        .desc-left 
+            margin-left: 32px
+        .desc-right
+
+@media all and(max-width: 1400px)
+    #mask 
+        margin-left: 0px
+    .trident-mask 
+        width: 14px
+
+@media all and(max-width: 1330px)
+    #circles 
+        width: 100%
+        svg 
+            width: 500px !important
+            left: -15.5%
+
+@media all and(max-width: 1200px)
+    .hero-section__container
+        justify-content: space-around
+    .left-block 
+        padding-top: 168px
+    .right-block
+        padding-top: 115px
+
+
+@media all and(max-width: 1120px)
+    .hero-section__container
+        width: 100%
+        padding: 0 15px
+
+@media all and(max-width: 1024px)
+    #mask
+        margin-left: 0px
+    .right-block 
+        padding-top: 85px
+    .left-block 
+        padding-top: 138px
+    .hero-section 
+        height: 1400px
+    #animated-bg svg 
+        width: 1900px !important
+        position: absolute
+        top: 0
+        left: 50%
+        top: 50%
+        transform: translateX(-50%) translateY(-50%) rotate(90deg)
+    .hero-section__container
+        flex-direction: column
+        align-items: center
+    #left-indicator 
+        width: 100%
+        height: 50%
+        left: 0
+        top: 0
+    #right-indicator
+        height: 50%
+        width: 100%
+        left: 0
+        bottom: 0
+        top: inherit
+    
+@media all and(max-width: 768px)
+    #animated-bg svg 
+        width: 1500px !important
+
+@media all and(max-width: 480px)
+    #animated-bg svg 
+        width: 1030px !important
+    .hero-section 
+        height: 1000px
+    .left-block 
+        padding-top: 58px
+    .text-wrap-left
+        margin: 0
+    #circles 
+        display: flex
+        justify-content: center
+        svg 
+            width: 350px !important
+            left: 0
+            position: relative
+    #loop svg 
+        width: 300px !important
+    .infinity .infinity-sign
+        width: 300px
+        margin-top: -2px
+    .button-wrap-right 
+        margin-top: 30px
+    #mask defs #myClip rect 
+        transform: rotate(-45deg) translateX(3px) !important
+        width: 13px
+
+@media (max-width: 320px)
+    #mask 
+        margin-left: -2px
+
+    
