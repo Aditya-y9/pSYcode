@@ -8,9 +8,9 @@ load_dotenv()
 app = Flask(__name__)
 client = ApifyClient("apify_api_8rT0FRHAYgyexeHGDstXGMLkFae1fz3d9ydG")
 
-# Get Apify API key from environment variable
-APIFY_TOKEN = os.getenv('APIFY_TOKEN')
-apify_client = ApifyClient(APIFY_TOKEN)
+# # Get Apify API key from environment variable
+# APIFY_TOKEN = os.getenv('APIFY_TOKEN')
+# apify_client = ApifyClient(APIFY_TOKEN)
 
 
 @app.route('/')

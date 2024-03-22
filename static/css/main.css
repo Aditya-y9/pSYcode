@@ -259,6 +259,33 @@ form .page .btns button.next{
   color: #fff;
 }
 
+/* Card styles */
+/* Card styles */
+.card {
+  border: none;
+  border-radius: 10px;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Add margin between cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.card-img {
+  border-radius: 10px;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+/* Dark theme for card */
+.card.bg-dark {
+  background-color: #292b2c; /* Dark background color for card */
+}
+
+.card-text {
+  color: #ffffff; /* White text color for card content */
+}
+
 
 /*SECTION */ 
 
