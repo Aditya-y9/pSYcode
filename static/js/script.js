@@ -80,6 +80,24 @@ nextBtnFirst.addEventListener("click", function(event){
     current -= 1;
   });
   
+  
 
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addProductBtn = document.getElementById('addProductBtn');
+
+    addProductBtn.addEventListener('click', function() {
+        window.location.href = '/addProduct';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addProductBtn = document.getElementById('myProductsBtn');
+
+    addProductBtn.addEventListener('click', function() {
+        window.location.href = '/myProducts';
+    });
+});
+
 
