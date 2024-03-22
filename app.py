@@ -1,11 +1,25 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from apify_client import ApifyClient
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
-
-load_dotenv()
+from flask_sqlalchemy import SQLAlchemy
+#load_dotenv()
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+
+db = SQLAlchemy(app)
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(200), nullable = False)
+    price = db.Column(db.Integer, default=0)
+    score = db.Column(db.Integer, default=0)
+
+    def __repr__(self):
+       return f"<YourModel id={self.id}, name={self.name}, price={self.price}, score={self.score}>"
+
+
+   
 client = ApifyClient("apify_api_8rT0FRHAYgyexeHGDstXGMLkFae1fz3d9ydG")
 
 # Get Apify API key from environment variable
@@ -23,7 +37,9 @@ def add_product():
 
 @app.route('/myProducts')
 def my_products():
-    return render_template('myProducts.html')
+    todos = Todo.query.all()
+    return render_template('myProducts.html', todos=todos)
+
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -37,6 +53,12 @@ def submit():
         business_coverage = request.form.get('business_coverage')
         target_audience = request.form.get('target_audience')
         marketing_budget = request.form.get('marketing_budget')
+
+        new_todo = Todo(name=product_name, price = price)
+
+        db.session.add(new_todo)
+        db.session.commit()
+        return redirect('/database')
 
         # Pass the form data to the ML model for processing
         # Here you would write code to process the form data using your ML model
@@ -94,6 +116,12 @@ def get_instagram_data():
 
     return render_template('result.html', items=items)
 
+@app.route('/database')
+def database():
+    todos = Todo.query.all()
+    return render_template('database.html', todos=todos)
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug="True")
