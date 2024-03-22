@@ -33,8 +33,10 @@ body{
 
 
 .navbar {
-  margin: 0px auto 0;
+  position: fixed;
   padding: 0;
+  top: 0;
+  left: 0;
   list-style: none;
   display: flex; /* Use flexbox */
   justify-content: center; /* Center align items horizontally */
@@ -103,6 +105,7 @@ body{
   text-align: center;
   border-radius: 5px;
   padding: 50px 35px 10px 35px;
+  margin-top: 50px;
 }
 .container header{
   font-size: 35px;
@@ -292,7 +295,7 @@ form .page .btns button.next{
 
 /*SECTION */ 
 
-/* .container
+ .containerr
 {
   display: flex;
   justify-content:space-around;
@@ -301,7 +304,7 @@ form .page .btns button.next{
   padding: 40px 0;
 }
 
-.container .box
+.containerr .box
 {
   position: relative;
   width: 320px;
@@ -313,7 +316,7 @@ form .page .btns button.next{
   transition: 0.5s;
 }
 
-.container .box::before
+.containerr .box::before
 {
   content:' ';
   position: absolute;
@@ -328,7 +331,7 @@ form .page .btns button.next{
   transition: 0.5s;
 }
 
-.container .box::after
+.containerr .box::after
 {
   content:'';
   position: absolute;
@@ -343,8 +346,8 @@ form .page .btns button.next{
   filter: blur(30px);
 }
 
-.container .box:hover:before,
-.container .box:hover:after
+.containerr .box:hover:before,
+.containerr .box:hover:after
 {
   transform: skewX(0deg);
   left: 20px;
@@ -352,25 +355,25 @@ form .page .btns button.next{
   
 }
 
-.container .box:nth-child(1):before,
-.container .box:nth-child(1):after
+.containerr .box:nth-child(1):before,
+.containerr .box:nth-child(1):after
 {
   background: linear-gradient(315deg, #ffbc00, #ff0058)
 }
 
-.container .box:nth-child(2):before,
-.container .box:nth-child(2):after
+.containerr .box:nth-child(2):before,
+.containerr .box:nth-child(2):after
 {
   background: linear-gradient(315deg, #03a9f4, #ff0058)
 }
 
-.container .box:nth-child(3):before,
-.container .box:nth-child(3):after
+.containerr .box:nth-child(3):before,
+.containerr .box:nth-child(3):after
 {
   background: linear-gradient(315deg, #4dff03, #00d0ff)
 }
 
-.container .box span
+.containerr .box span
 {
   display: block;
   position: absolute;
@@ -382,7 +385,7 @@ form .page .btns button.next{
   pointer-events: none;
 }
 
-.container .box span::before
+.containerr .box span::before
 {
   content:'';
   position: absolute;
@@ -399,7 +402,7 @@ form .page .btns button.next{
   box-shadow: 0 5px 15px rgba(0,0,0,0.08)
 }
 
-.container .box:hover span::before
+.containerr .box:hover span::before
 {
   top: -50px;
   left: 50px;
@@ -408,7 +411,7 @@ form .page .btns button.next{
   opacity: 1;
 }
 
-.container .box span::after
+.containerr .box span::after
 {
   content:'';
   position: absolute;
@@ -426,7 +429,7 @@ form .page .btns button.next{
   animation-delay: -1s;
 }
 
-.container .box:hover span:after
+.containerr .box:hover span:after
 {
   bottom: -50px;
   right: 50px;
@@ -448,7 +451,7 @@ form .page .btns button.next{
   }
 }
 
-.container .box .content
+.containerr .box .content
 {
   position: relative;
   left: 0;
@@ -462,27 +465,27 @@ form .page .btns button.next{
   color: #fff;
 }
 
-.container .box:hover .content
+.containerr .box:hover .content
 {
   left: -25px;
   padding: 60px 40px;
 }
 
-.container .box .content h2
+.containerr .box .content h2
 {
   font-size: 2em;
   color: #fff;
   margin-bottom: 10px;
 }
 
-.container .box .content p
+.containerr .box .content p
 {
   font-size: 1.1em;
   margin-bottom: 10px;
   line-height: 1.4em;
 }
 
-.container .box .content a
+.containerr .box .content a
 {
   display: inline-block;
   font-size: 1.1em;
@@ -495,9 +498,9 @@ form .page .btns button.next{
   margin-top: 5px;
 }
 
-.container .box .content a:hover
+.containerr .box .content a:hover
 {
   background: #ffcf4d;
   border: 1px solid rgba(255, 0, 88, 0.4);
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
-} */
+} 
