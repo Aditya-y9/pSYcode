@@ -100,4 +100,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const addProductBtn = document.getElementById('homeBtn');
+
+    addProductBtn.addEventListener('click', function() {
+        window.location.href = '/';
+    });
+});
+
 

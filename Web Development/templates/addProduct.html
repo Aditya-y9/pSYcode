@@ -5,7 +5,15 @@
 
 {% block body %}
 
-<div class="container">
+<div class="navbar">
+    <ul>
+      <li><button id="homeBtn" class="navButton">Home</button></li>
+      <li><button id="addProductBtn" class="navButton">Add Product</button></li>
+        <li><button id="myProductsBtn" class="navButton">My Products</button></li>
+    </ul>
+  </div>
+
+<div class="container" >
     <header>Add Product</header>
     <div class="progress-bar">
       <div class="step">
@@ -29,6 +37,7 @@
         </div>
         <div class="check fas fa-check"></div>
       </div>
+      
       <div class="step">
         <p>Step 4</p>
         <div class="bullet">

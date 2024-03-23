@@ -1,0 +1,12 @@
+{%block head%}
+{%endblock%}
+
+{% block body %}
+
+<h1>Upload an Image</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="imageFile" accept="image/*">
+        <button type="submit">Upload</button>
+    </form>
+
+{%endblock%}

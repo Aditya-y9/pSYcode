@@ -4,6 +4,8 @@ from apify_client import ApifyClient
 import os
 from flask_sqlalchemy import SQLAlchemy
 #load_dotenv()
+from PIL import Image
+import io
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -22,14 +24,14 @@ class Todo(db.Model):
    
 client = ApifyClient("apify_api_8rT0FRHAYgyexeHGDstXGMLkFae1fz3d9ydG")
 
-# Get Apify API key from environment variable
-APIFY_TOKEN = os.getenv('APIFY_TOKEN')
-apify_client = ApifyClient(APIFY_TOKEN)
+# # Get Apify API key from environment variable
+# APIFY_TOKEN = os.getenv('APIFY_TOKEN')
+# apify_client = ApifyClient(APIFY_TOKEN)
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('imageForm.html')
 
 @app.route('/addProduct')
 def add_product():
@@ -39,6 +41,8 @@ def add_product():
 def my_products():
     todos = Todo.query.all()
     return render_template('myProducts.html', todos=todos)
+
+
 
 
 @app.route('/submit', methods=['POST'])
@@ -120,6 +124,30 @@ def get_instagram_data():
 def database():
     todos = Todo.query.all()
     return render_template('database.html', todos=todos)
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    # Check if the POST request has the file part
+    if 'imageFile' not in request.files:
+        return 'No file uploaded', 400
+
+    file = request.files['imageFile']
+
+    # Check if the file is empty
+    if file.filename == '':
+        return 'No selected file', 400
+
+    # Read the image file
+    img_bytes = file.read()
+    img = Image.open(io.BytesIO(img_bytes))
+
+    # Process the image (you can replace this with your ML model code)
+    # For example, resize the image to 100x100 pixels
+    resized_img = img.resize((100, 100))
+
+    # Here you would pass the processed image to your ML model
+    # For demonstration purposes, let's just return a success message
+    return 'Image uploaded and processed successfully'
 
 if __name__ == '__main__':
     with app.app_context():
