@@ -1,1 +1,1 @@
-Ganapati Bappa Morya!
+gGanapati Bappa Morya!
