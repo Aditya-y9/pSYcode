@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for todo in todos %}
+        <li>
+            <strong>ID:</strong> {{ todo.id }}<br>
+            <strong>Name:</strong> {{ todo.name }}<br>
+            <strong>Price:</strong> {{ todo.price }}<br>
+            <strong>Score:</strong> {{ todo.score }}<br>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

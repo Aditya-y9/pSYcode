@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{%block head%}
+{%endblock%}
+
+{% block body %}
+
+<div class="container">
+    <header>Add Product</header>
+    <div class="progress-bar">
+      <div class="step">
+        <p>Step 1</p>
+        <div class="bullet">
+          <span>1</span>
+        </div>
+        <div class="check fas fa-check"></div>
+      </div>
+      <div class="step">
+        <p>Step 2</p>
+        <div class="bullet">
+          <span>2</span>
+        </div>
+        <div class="check fas fa-check"></div>
+      </div>
+      <div class="step">
+        <p>Step 3</p>
+        <div class="bullet">
+          <span>3</span>
+        </div>
+        <div class="check fas fa-check"></div>
+      </div>
+      <div class="step">
+        <p>Step 4</p>
+        <div class="bullet">
+          <span>4</span>
+        </div>
+        <div class="check fas fa-check"></div>
+      </div>
+    </div>
+    
+    <div class="form-outer">
+        <form action="/submit" method="POST">
+            <div class="page slide-page">
+                <div class="field">
+                    <div class="label">Product Category</div>
+                    <select name="product_category">
+                        <option>Automobile</option>
+                        <option>Books</option>
+                        <option>Fashion</option>
+                        <option>Electronics</option>
+                        <option>Home</option>
+                        <option>Games</option>
+                        <option>Food and Beverages</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div class="field">
+                    <div class="label">Product</div>
+                    <input type="text" name="product">
+                </div>
+                <div class="field">
+                    <button class="firstNext next">Next</button>
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="field">
+                    <div class="label">Product Name</div>
+                    <input type="text" name="product_name">
+                </div>
+                <div class="field">
+                    <div class="label">Product Description</div>
+                    <input type="text" name="product_description">
+                </div>
+                <div class="field btns">
+                    <button class="prev-1 prev">Previous</button>
+                    <button class="next-1 next">Next</button>
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="field">
+                    <div class="label">Price</div>
+                    <input type="number" name="price">
+                </div>
+                <div class="field">
+                    <div class="label">Business Coverage</div>
+                    <select name="business_coverage">
+                        <option>Local</option>
+                        <option>City</option>
+                        <option>State</option>
+                        <option>Country</option>
+                        <option>International</option>
+                    </select>
+                </div>
+                <div class="field btns">
+                    <button class="prev-2 prev">Previous</button>
+                    <button class="next-2 next">Next</button>
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="field">
+                    <div class="label">Target Audience</div>
+                    <input type="text" name="target_audience">
+                </div>
+                <div class="field">
+                    <div class="label">Marketing Budget</div>
+                    <input type="number" name="marketing_budget">
+                </div>
+                <div class="field btns">
+                    <button class="prev-3 prev">Previous</button>
+                    <button class="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+
+{%endblock%}
